@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTalk 💙</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+
+</head>
+<body>
+
+    <header>
+        <span>CareTalk 💙</span>
+        <div class="header-actions">
+            <button class="btn-profile" onclick="toggleChat(true); togglePerfil(false); toggleCalendario(false); toggleWelcomeScreen(false);">💬 Chat</button>
+            <button class="btn-profile" onclick="toggleCalendario(true); togglePerfil(false); toggleChat(false); toggleWelcomeScreen(false);">📅 Agenda</button>
+            <button class="btn-profile" onclick="togglePerfil(true); toggleCalendario(false); toggleChat(false); toggleWelcomeScreen(false);">👤 Perfil</button>
+            <button class="btn-profile" onclick="toggleChat(false); togglePerfil(false); toggleCalendario(false); toggleWelcomeScreen(true);">🏠 Início</button>
+        </div>
+    </header>
+
+    <div id="chat-container"></div>
+
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Digite ou fale...">
+        <button id="voice-btn" class="btn-action">🎤</button>
+        <button id="send-btn" class="btn-action">OK</button>
+    </div>
+
+    <!-- Tela de Perfil -->
+    <div id="profile-screen">
+        <button class="btn-back-top" onclick="togglePerfil(false); toggleWelcomeScreen(true);">← Voltar</button>
+        <h2>Configurações</h2>
+        <div class="profile-content">
+            <label>Como deseja ser chamado?</label>
+            <input type="text" id="user-name-input" placeholder="Seu nome">
+            
+            <label>Data de Aniversário:</label>
+            <input type="date" id="user-birthday-input">
+
+            <label>Tipo Sanguíneo:</label>
+            <input type="text" id="user-blood-type-input" placeholder="Ex: O+">
+
+            <label>Doenças ou Condições (adicione uma por vez):</label>
+            <div class="disease-input-group">
+                <input type="text" id="disease-input" placeholder="Ex: Diabetes">
+                <button onclick="adicionarDoenca()">Adicionar</button>
+            </div>
+            <div id="diseases-container" class="disease-bubble-container">
+                <!-- Bolhas de doenças serão adicionadas aqui via JS -->
+            </div>
+
+            <label>Informações para a IA saber sobre você:</label>
+            <input type="text" id="user-info-input" placeholder="Ex: Gosto de café, sou de São Paulo...">
+            
+            <div class="permission-checkbox">
+                <input type="checkbox" id="ai-permission-checkbox">
+                <label for="ai-permission-checkbox">Permitir que a IA preencha ou sugira informações do perfil com base nas conversas.</label>
+            </div>
+            
+            <button class="btn-full primary" onclick="salvarPerfil()">Salvar e Voltar</button>
+        </div>
+        <div class="danger-zone">
+            <button id="clear-btn" onclick="limparHistorico()">Apagar Todas as Conversas</button>
+        </div>
+        <button class="btn-full secondary" onclick="togglePerfil(false); toggleWelcomeScreen(true);">Voltar</button>
+    </div>
+
+    <!-- Tela de Calendário -->
+    <div id="calendar-screen">
+        <h2>Minha Agenda 📅</h2>
+        <button class="btn-add" onclick="adicionarLembrete()">+ Novo Lembrete</button>
+        <div id="reminders-list"></div>
+        <button class="btn-full secondary" onclick="toggleCalendario(false); toggleWelcomeScreen(true);">Voltar</button>
+    </div>
+
+    <!-- Tela Inicial de Boas-Vindas -->
+    <div id="welcome-screen">
+        <h1>Bem-vindo ao CareTalk 💙</h1>
+        <p>Seu assistente pessoal de saúde e bem-estar. Converse, gerencie sua agenda e personalize seu perfil.</p>
+        <div class="welcome-buttons">
+            <button class="welcome-button" onclick="toggleWelcomeScreen(false); toggleChat(true);">💬 Iniciar Conversa</button>
+            <button class="welcome-button" onclick="toggleWelcomeScreen(false); toggleCalendario(true);">📅 Minha Agenda</button>
+            <button class="welcome-button" onclick="toggleWelcomeScreen(false); togglePerfil(true);">👤 Meu Perfil</button>
+        </div>
+    </div>
+
+        <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

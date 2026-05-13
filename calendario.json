@@ -1,0 +1,10 @@
+{
+    "lembretes": [
+        {
+            "data": "2026-05-12",
+            "titulo": "Exemplo de Lembrete",
+            "descricao": "Este é um exemplo de nota no seu calendário.",
+            "concluido": false
+        }
+    ]
+}
