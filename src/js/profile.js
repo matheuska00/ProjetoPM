@@ -20,18 +20,18 @@ export function adicionarDoenca() {
     const diseaseInput = document.getElementById('disease-input');
     const novaDoenca = diseaseInput.value.trim();
     if (novaDoenca) {
-        const perfil = JSON.parse(localStorage.getItem('perfil_caretalk')) || { doencas: [] };
+        const perfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || { doencas: [] };
         perfil.doencas.push(novaDoenca);
-        localStorage.setItem('perfil_caretalk', JSON.stringify(perfil));
+        localStorage.setItem('perfil_oldassist', JSON.stringify(perfil));
         renderizarDoencas(perfil.doencas);
         diseaseInput.value = '';
     }
 }
 
 export function removerDoenca(index) {
-    const perfil = JSON.parse(localStorage.getItem('perfil_caretalk')) || { doencas: [] };
+    const perfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || { doencas: [] };
     perfil.doencas.splice(index, 1);
-    localStorage.setItem('perfil_caretalk', JSON.stringify(perfil));
+    localStorage.setItem('perfil_oldassist', JSON.stringify(perfil));
     renderizarDoencas(perfil.doencas);
 }
 
@@ -41,15 +41,16 @@ export function salvarPerfil() {
     const aniversario = document.getElementById('user-birthday-input').value;
     const tipoSanguineo = document.getElementById('user-blood-type-input').value;
     const aiPermissao = document.getElementById('ai-permission-checkbox').checked;
-    const doencas = JSON.parse(localStorage.getItem('perfil_caretalk')).doencas || [];
-    localStorage.setItem('perfil_caretalk', JSON.stringify({ nome, info, aniversario, tipoSanguineo, doencas, aiPermissao }));
+    const existingPerfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || {};
+    const doencas = existingPerfil.doencas || [];
+    localStorage.setItem('perfil_oldassist', JSON.stringify({ nome, info, aniversario, tipoSanguineo, doencas, aiPermissao }));
     window.togglePerfil(false);
     location.reload();
 }
 
 export function limparHistorico() {
     if(confirm("Deseja apagar as conversas?")) {
-        localStorage.removeItem('historico_caretalk');
+        localStorage.removeItem('historico_oldassist');
         location.reload();
     }
 }

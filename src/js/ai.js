@@ -1,9 +1,9 @@
 import { API_KEY } from './utils.js';
 
 export async function chamarIA(pergunta) {
-    const perfil = JSON.parse(localStorage.getItem('perfil_caretalk')) || { nome: "amigo(a)", info: "", aniversario: "", tipoSanguineo: "", doencas: [], aiPermissao: false };
-    const historico = JSON.parse(localStorage.getItem('historico_caretalk')) || [];
-    const lembretes = JSON.parse(localStorage.getItem('lembretes_caretalk')) || [];
+    const perfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || { nome: "amigo(a)", info: "", aniversario: "", tipoSanguineo: "", doencas: [], aiPermissao: false };
+    const historico = JSON.parse(localStorage.getItem('historico_oldassist')) || [];
+    const lembretes = JSON.parse(localStorage.getItem('lembretes_oldassist')) || [];
     
     const agendaTexto = lembretes.map(l => `- ${l.data}: ${l.titulo} (${l.descricao})`).join('\n');
 
@@ -21,7 +21,7 @@ export async function chamarIA(pergunta) {
     mensagensContexto.push({
         role: "user",
         parts: [{ text: `[CONTEXTO: ${perfilContexto} AGENDA ATUAL:\n${agendaTexto || "Nenhum compromisso"}. 
-        PERSONALIDADE: Você é o CareTalk. Seu tom deve ser educado, respeitoso e levemente formal (tratando o usuário com a devida cortesia), mas sempre mantendo o carinho, a empatia e a amizade. 
+        PERSONALIDADE: Você é o OldAssist. Seu tom deve ser educado, respeitoso e levemente formal (tratando o usuário com a devida cortesia), mas sempre mantendo o carinho, a empatia e a amizade. 
         INSTRUÇÃO: Se o usuário pedir para agendar algo, responda confirmando e inclua ao final: [COMANDO_AGENDA: data | titulo | descricao]. ${perfil.aiPermissao ? 'Se relevante e com a permissão ativada, você pode sugerir ou preencher dados do perfil (aniversário, tipo sanguíneo, doenças) com o formato [COMANDO_PERFIL: campo | valor].' : ''}] - Pergunta: ${pergunta}` }]
     });
 

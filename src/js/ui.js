@@ -9,9 +9,9 @@ export function adicionarMensagem(texto, isUser, salvar = true) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
     if (salvar) {
-        const historico = JSON.parse(localStorage.getItem('historico_caretalk')) || [];
+        const historico = JSON.parse(localStorage.getItem('historico_oldassist')) || [];
         historico.push({ texto, isUser });
-        localStorage.setItem('historico_caretalk', JSON.stringify(historico));
+        localStorage.setItem('historico_oldassist', JSON.stringify(historico));
         if (!isUser) falarTexto(texto);
     }
 }

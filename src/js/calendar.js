@@ -1,6 +1,6 @@
 export function renderizarLembretes() {
     const list = document.getElementById('reminders-list');
-    const lembretes = JSON.parse(localStorage.getItem('lembretes_caretalk')) || [];
+    const lembretes = JSON.parse(localStorage.getItem('lembretes_oldassist')) || [];
     list.innerHTML = lembretes.length ? '' : '<p>Nenhum compromisso marcado.</p>';
     lembretes.forEach((item, index) => {
         const div = document.createElement('div');
@@ -22,16 +22,16 @@ export function adicionarLembrete() {
     const descricao = prompt("Algum detalhe extra?");
     
     if(titulo && data) {
-        const lembretes = JSON.parse(localStorage.getItem('lembretes_caretalk')) || [];
+        const lembretes = JSON.parse(localStorage.getItem('lembretes_oldassist')) || [];
         lembretes.push({ titulo, data, descricao });
-        localStorage.setItem('lembretes_caretalk', JSON.stringify(lembretes));
+        localStorage.setItem('lembretes_oldassist', JSON.stringify(lembretes));
         renderizarLembretes();
     }
 }
 
 export function removerLembrete(index) {
-    const lembretes = JSON.parse(localStorage.getItem('lembretes_caretalk')) || [];
+    const lembretes = JSON.parse(localStorage.getItem('lembretes_oldassist')) || [];
     lembretes.splice(index, 1);
-    localStorage.setItem('lembretes_caretalk', JSON.stringify(lembretes));
+    localStorage.setItem('lembretes_oldassist', JSON.stringify(lembretes));
     renderizarLembretes();
 }

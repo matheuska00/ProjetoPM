@@ -46,7 +46,7 @@ async function enviar() {
             const [fullMatch, campo, valor] = match;
             processarComandoPerfil(campo, valor);
             if (document.getElementById('profile-screen').style.display === 'flex') {
-                const perfil = JSON.parse(localStorage.getItem('perfil_caretalk')) || { doencas: [] };
+            const perfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || { doencas: [] };
                 document.getElementById('user-birthday-input').value = perfil.aniversario || '';
                 document.getElementById('user-blood-type-input').value = perfil.tipoSanguineo || '';
                 document.getElementById('user-info-input').value = perfil.info || '';
@@ -60,7 +60,7 @@ async function enviar() {
 }
 
 window.onload = () => {
-    const perfil = JSON.parse(localStorage.getItem('perfil_caretalk')) || { nome: "amigo(a)", info: "", aniversario: "", tipoSanguineo: "", doencas: [], aiPermissao: false };
+    const perfil = JSON.parse(localStorage.getItem('perfil_oldassist')) || { nome: "amigo(a)", info: "", aniversario: "", tipoSanguineo: "", doencas: [], aiPermissao: false };
     
     document.getElementById('user-name-input').value = perfil.nome !== "amigo(a)" ? perfil.nome : "";
     document.getElementById('user-info-input').value = perfil.info;

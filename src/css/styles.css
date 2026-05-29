@@ -145,6 +145,17 @@ input#user-input {
     flex-direction: column;
     padding: 30px;
     box-sizing: border-box;
+    overflow-y: auto;
+    padding-bottom: 40px;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .profile-content input {

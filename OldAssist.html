@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareTalk 💙</title>
+    <title>OldAssist 💙</title>
     <link rel="stylesheet" href="src/css/styles.css">
 
 </head>
 <body>
 
     <header>
-        <span>CareTalk 💙</span>
+        <span>OldAssist 💙</span>
         <div class="header-actions">
             <button class="btn-profile" onclick="toggleChat(true); togglePerfil(false); toggleCalendario(false); toggleWelcomeScreen(false);">💬 Chat</button>
             <button class="btn-profile" onclick="toggleCalendario(true); togglePerfil(false); toggleChat(false); toggleWelcomeScreen(false);">📅 Agenda</button>
@@ -29,7 +29,6 @@
 
     <!-- Tela de Perfil -->
     <div id="profile-screen">
-        <button class="btn-back-top" onclick="togglePerfil(false); toggleWelcomeScreen(true);">← Voltar</button>
         <h2>Configurações</h2>
         <div class="profile-content">
             <label>Como deseja ser chamado?</label>
@@ -76,7 +75,7 @@
 
     <!-- Tela Inicial de Boas-Vindas -->
     <div id="welcome-screen">
-        <h1>Bem-vindo ao CareTalk 💙</h1>
+        <h1>Bem-vindo ao OldAssist 💙</h1>
         <p>Seu assistente pessoal de saúde e bem-estar. Converse, gerencie sua agenda e personalize seu perfil.</p>
         <div class="welcome-buttons">
             <button class="welcome-button" onclick="toggleWelcomeScreen(false); toggleChat(true);">💬 Iniciar Conversa</button>
